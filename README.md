@@ -25,10 +25,11 @@ Please config the model, dataset, and hyperparameters in `run.py` and  `flowcf.y
 
 ## Citation
 ```bibtex
-@article{liu2025flow,
+@inproceedings{liu2025flow,
   title={Flow Matching for Collaborative Filtering},
   author={Liu, Chengkai and Zhang, Yangtian and Wang, Jianling and Ying, Rex and Caverlee, James},
-  journal={arXiv preprint arXiv:2502.07303},
+  booktitle={Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V. 2},
+  pages={1765--1775},
   year={2025}
 }
 ```
