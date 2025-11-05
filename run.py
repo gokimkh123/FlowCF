@@ -40,13 +40,16 @@ if __name__ == '__main__':
     logger.info(config)
 
     # dataset filtering
+    # 데이터셋 준비, create_dataset 함수를 호출하여 데이터셋을 로드하고 전처리함
     dataset = create_dataset(config)
     logger.info(dataset)
 
     # dataset splitting
+    # 데이터 분할 및 DataLoader생성
     train_data, valid_data, test_data = data_preparation(config, dataset)
 
     # model loading and initialization
+    # 모델 로드 및 초기화
     init_seed(config["seed"] + config["local_rank"], config["reproducibility"])
     model = locals()[config['model']](config, train_data.dataset).to(config['device'])
     logger.info(model)
@@ -56,6 +59,7 @@ if __name__ == '__main__':
     logger.info(set_color("FLOPs", "blue") + f": {flops}")
 
     # trainer loading and initialization
+    # 모델은 train_data로 학습하고, valid_data로 중간 성능을 확인하여 최적의 모델을 저장
     trainer = Trainer(config, model)
 
     # model training
